@@ -1,6 +1,6 @@
-= Redmine Issue Templates Plugin 
+= Redmine Issue Templates Plugin
 
-Plugin to generate and use issue templates for each project to assist issue creation. 
+Plugin to generate and use issue templates for each project to assist issue creation.
 For Redmine 2.1.x or later, please use version 0.0.4 or higher.
 For Redmine 2.0, please use version 0.0.3 or higher.
 For Redmine 1.3 and 1.4, please use support_0.0.2 branch.
@@ -11,7 +11,7 @@ For Redmine 1.3 and 1.4, please use support_0.0.2 branch.
 1. Copy the plugin directory into the vendor/plugins directory.
    Please note that plugin's folder name should be "redmine_issue_templates".
    If changed, some migration task will be failed.
-2. Do migration task. 
+2. Do migration task.
   e.g. rake db:migrate_plugins RAILS_ENV=production
   e.g. rake redmine:plugins:migrate RAILS_ENV=production  (For Redmine 2.x)
 3. (Re)Start Redmine.
@@ -27,7 +27,7 @@ See also: http://www.r-labs.org/projects/issue-template/wiki/About_en#Uninstall-
 === Required Settings
 
 1. Login to your Redmine install as an Administrator
-2. Enable the permissions for your Roles. 
+2. Enable the permissions for your Roles.
 
    Show issue templates: User can show issue templates and use templates when creating/updating issues.
    Edit issue templates: User can create/update/activate templates for each project.
@@ -38,7 +38,7 @@ See also: http://www.r-labs.org/projects/issue-template/wiki/About_en#Uninstall-
 
 === Note
 
-This plugin aims to assist contributor's feedback by using template if the 
+This plugin aims to assist contributor's feedback by using template if the
 project has some format for issues.
 
 === Repository
@@ -54,6 +54,11 @@ project has some format for issues.
 * http://www.r-labs.org/projects/issue-template/wiki/About_en
 
 == Changelog
+
+=== Forkerd
+* Repository merged form Bitbucket to GitHub.
+* Template issue field removed from new issue page.
+* Description field will be updated when descriptions is not empty. The template will be loaded at first then the existing description information.
 
 === 0.0.5
 
