@@ -1,0 +1,31 @@
+<% return '' unless @project.module_enabled? :issue_templates %>
+<% return '' unless authorize_for('issue_templates', 'show') %>
+<%
+   # TODO: This code should be moved from template.
+   @setting = IssueTemplateSetting.find_or_create(@project.id)
+%>
+
+     <select id="issue_template" include_blank="true" length="150" name="issue_template" style="visibility:hidden">
+      <option value="">---</option>
+    </select>
+    <span id="template_status-area"></span>
+
+<script type="text/javascript">
+    //<![CDATA[
+    token = '<%= form_authenticity_token %>';
+    load_url = '<%= url_for(:controller => 'issue_templates',
+      :action => 'load', :project_id => @project) %>';
+    pulldown_url = '<%= url_for(:controller => 'issue_templates',
+      :action => 'set_pulldown', :project_id => @project) %>';
+    confirm_msg = '<%= escape_javascript(l(:confirm_replace_description_with_template)) %>'
+    tracker =  '<%= @issue.tracker.id %>'
+    set_pulldown(tracker, pulldown_url, token);
+
+    $('#template_area').insertBefore($('#issue_subject').parent());
+    $(document).ready(function() {
+        $("#issue_template").change(function(){
+            load_template(load_url, token, confirm_msg);
+        });
+    });
+
+</script>
